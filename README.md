@@ -8,7 +8,7 @@ The plugin can be install using the following command.
 
 ```
 asdf plugin-add evans
-# or asdf plugin-add vim https://github.com/goki90210/asdf-evans.git
+# or asdf plugin-add evans https://github.com/goki90210/asdf-evans.git
 asdf install evans <version>
 ```
 

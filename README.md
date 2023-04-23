@@ -2,6 +2,8 @@
 
 [Evans](https://github.com/ktr0731/evans) plugin for [asdf](https://github.com/asdf-vm/asdf) version manager.
 
+Based on [tsuyoshicho/asdf-vim](https://github.com/tsuyoshicho/asdf-vim) and [elementalvoid/asdf-saml2aws](https://github.com/elementalvoid/asdf-saml2aws)
+
 ## Usage
 ### Install
 The plugin can be install using the following command.

@@ -34,14 +34,23 @@ install() {
   local bin_path="${install_path}/evans"
   
   # Note that we're adding back the 'v' tag prefix but _only_ in the directory path, not the downloaded file name.
-  download_url="https://github.com/ktr0731/evans/releases/download/v${version}/evans_${platform}_${os_arch}.tar.gz"
+  local download_url="https://github.com/ktr0731/evans/releases/download/v${version}/evans_${platform}_${os_arch}.tar.gz"
+  local v6=$(echo ${version} | awk -F. '{printf "%2d%02d%02d", $1,$2,$3}')
+  if [ "${v6}" -le 1000 ] || [ "${v6}" -eq 1004 ]; then
+    download_url="https://github.com/ktr0731/evans/releases/download/${version}/evans_${platform}_${os_arch}.tar.gz"
+  fi
 
   mkdir -p "${install_path}"
 
   cd ${tmp_dir}
   echo "Downloading evans from ${download_url}"
-  curl -sL "$download_url" -o "${tmp_dir}/evans_${platform}_${version}.tar.gz"
-  tar -xzf ${tmp_dir}/evans_${platform}_${version}.tar.gz
+  if [ "${v6}" -le 601 ]; then
+    curl -sL "$download_url" -o "${tmp_dir}/evans_${platform}_${version}.tar"
+    tar -xf ${tmp_dir}/evans_${platform}_${version}.tar
+  else
+    curl -sL "$download_url" -o "${tmp_dir}/evans_${platform}_${version}.tar.gz"
+    tar -xzf ${tmp_dir}/evans_${platform}_${version}.tar.gz
+  fi
   mv ${tmp_dir}/evans ${bin_path}
   chmod +x "${bin_path}"
 }

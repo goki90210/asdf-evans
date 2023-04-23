@@ -1,4 +1,4 @@
-# asdf-evans 
+# asdf-evans [![GitHub Actions Status:Main](https://github.com/goki90210/asdf-evans/workflows/Main%20workflow/badge.svg)](https://github.com/goki90210/asdf-evans/actions?query=workflow%3A%22Main+workflow%22)
 
 [Evans](https://github.com/ktr0731/evans) plugin for [asdf](https://github.com/asdf-vm/asdf) version manager.
 
